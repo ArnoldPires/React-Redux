@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree VR</title>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+</head>
+<body>
+    <a-scene background="color: blue;">
+        <a-assets>
+            <!-- Grass Texture -->
+            <img id="grassTexture" src="./images/grass.jpg" crossorigin="anonymous">
+            <!-- Sky Texture -->
+            <img id="skyBackground" src="./images/forest.jpg">
+            <!-- Rock Textures -->
+            <img id="rock1" src="./images/stone.png" crossorigin="anonymous">
+            <img id="rock2" src="./images/rock.png" crossorigin="anonymous">
+            <!-- Water Texture -->
+            <img id="water" src="./images/water.jpg" crossorigin="anonymous">
+            <!-- Trunk Texture -->
+            <img id="trunk" src="./images/treeBark.jpg" crossorigin="anonymous">
+            <!-- Tree Texture -->
+            <img id="tree" src="./images/leaves.jpg" crossorigin="anonymous">
+            <!-- Bear Texture -->
+            <img id="bear" src="./images/bear.png" crossorigin="anonymous">
+
+        </a-assets>
+        <!-- Camera -->
+        <a-camera id="mainCamera" position="0 -27 10" wasd-controls-enabled="true"></a-camera>
+        <!-- Sky -->
+        <a-sky src="#skyBackground" radius="100" rotation="0 0 0"></a-sky>
+
+        <!-- Grass textured ground using the asset -->
+        <a-plane position="0 -30 0" rotation="-90 0 0" width="100" height="100" repeat="10 40" src="#grassTexture"></a-plane>
+
+        <!-- Water texture for the lake bottom -->
+        <a-plane position="30 -29.9 0" rotation="-90 0 0" width="40" height="100" src="#water"></a-plane>
+        <!-- Small lake on the right -->
+        <a-ocean position="30 -29.9 0" width="40" depth="30" scale="1 3.3 1" amplitude="0.5" amplitude-variance="0.3" speed="1" color="#1E90FF"></a-ocean>
+
+        <!-- Existing Trees -->
+        <a-cylinder position="-5 -27.5 20" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-5 -24.5 20" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-15 -27.5 -20" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-15 -24.5 -20" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Smaller Trees (Adjusted) -->
+        <a-cylinder position="-8 -28.5 2" radius="0.3" height="3" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-8 -26.5 2" radius-bottom="1.5" radius-top="0" height="4" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-13 -28 -8" radius="0.35" height="3.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-13 -26 -8" radius-bottom="1.7" radius-top="0" height="4.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Taller Trees (Adjusted) -->
+        <a-cylinder position="-12 -26 7" radius="0.75" height="7" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-12 -22.5 7" radius-bottom="3.5" radius-top="0" height="8" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-17 -26.5 -12" radius="0.7" height="6.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-17 -23 -12" radius-bottom="3.3" radius-top="0" height="7.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Regular Trees -->
+        <a-cylinder position="-15 -27.5 30" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-15 -24.5 30" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-28 -27.5 35" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-28 -24.5 35" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Smaller Trees -->
+        <a-cylinder position="-20 -28.5 -10" radius="0.3" height="3" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-20 -26.5 -10" radius-bottom="1.5" radius-top="0" height="4" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-23 -28 -13" radius="0.35" height="3.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-23 -26 -13" radius-bottom="1.7" radius-top="0" height="4.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Taller Trees -->
+        <a-cylinder position="-30 -26 -8" radius="0.75" height="7" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-30 -22.5 -8" radius-bottom="3.5" radius-top="0" height="8" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-32 -26.5 5" radius="0.7" height="6.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-32 -23 5" radius-bottom="3.3" radius-top="0" height="7.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- More Trees -->
+        <a-cylinder position="-35 -27.5 -20" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-35 -24.5 -20" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <a-cylinder position="-40 -27.5 -15" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-40 -24.5 -15" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 1 -->
+        <a-cylinder position="-30 -27.5 25" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-30 -24.5 25" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 2 -->
+        <a-cylinder position="-32 -27.5 10" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-32 -24.5 10" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 3 -->
+        <a-cylinder position="-34 -28.5 -10" radius="0.3" height="3" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-34 -26.5 -10" radius-bottom="1.5" radius-top="0" height="4" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 4 -->
+        <a-cylinder position="-36 -28 0" radius="0.35" height="3.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-36 -26 0" radius-bottom="1.7" radius-top="0" height="4.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 5 -->
+        <a-cylinder position="-38 -26 -15" radius="0.75" height="7" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-38 -22.5 -15" radius-bottom="3.5" radius-top="0" height="8" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 6 -->
+        <a-cylinder position="-40 -26.5 5" radius="0.7" height="6.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-40 -23 5" radius-bottom="3.3" radius-top="0" height="7.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 7 -->
+        <a-cylinder position="-42 -27.5 -5" radius="0.5" height="5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-42 -24.5 -5" radius-bottom="2.5" radius-top="0" height="6" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 8 -->
+        <a-cylinder position="-44 -28.5 15" radius="0.3" height="3" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-44 -26.5 15" radius-bottom="1.5" radius-top="0" height="4" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 9 -->
+        <a-cylinder position="-46 -28 20" radius="0.35" height="3.5" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-46 -26 20" radius-bottom="1.7" radius-top="0" height="4.5" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Tree 10 -->
+        <a-cylinder position="-48 -26 10" radius="0.75" height="7" color="#8B4513" src="#trunk"></a-cylinder>
+        <a-cone position="-48 -22.5 10" radius-bottom="3.5" radius-top="0" height="8" color="#228B22" src="#tree"></a-cone>
+
+        <!-- Rocks -->
+        <a-image src="#rock1" position="3 -29.5 3" depth="1" height="1" width="2" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="-3 -29.5 -3" depth="2" height="1" width="1.5" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="7 -29 4" scale="2 2 1" rotation="0 45 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="-8 -29 -6" scale="1.5 1.5 1" rotation="0 135 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="15 -29 10" scale="1.3 1.3 1" rotation="0 70 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="-10 -29 8" scale="2 2 1" rotation="0 150 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="20 -29 -5" scale="1.8 1.8 1" rotation="0 110 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="-15 -29 -15" scale="1.6 1.6 1" rotation="0 200 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="5 -29 -20" scale="1.2 1.2 1" rotation="0 50 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="12 -29 18" scale="2.2 2.2 1" rotation="0 40 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="-20 -29 12" scale="1.5 1.5 1" rotation="0 180 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="8 -29 -15" scale="1.4 1.4 1" rotation="0 20 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="-8 -29 15" scale="1.6 1.6 1" rotation="0 260 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock1" position="20 -29 -12" scale="1.9 1.9 1" rotation="0 320 0" look-at="#mainCamera"></a-image>
+        <a-image src="#rock2" position="-22 -29 12" scale="2.1 2.1 1" rotation="0 110 0" look-at="#mainCamera"></a-image>
+
+        <!-- Bear -->
+        <a-image src="#bear" scale="5 5 2.1" position="-23.3 -27 16" rotation="0 180 0" look-at="#mainCamera"></a-image>
+
+        <!-- Sun for the day side -->
+        <a-light type="directional" position="2 4 -3" intensity="1.5"></a-light>
+
+        <!-- Ambient light for night side -->
+        <a-light type="ambient" color="#444"></a-light>
+
+        <!-- Point lights as stars or moonlight -->
+        <a-light type="point" position="-20 -20 -20" color="#888" intensity="0.5"></a-light>
+        <a-light type="point" position="-25 -25 20" color="#888" intensity="0.5"></a-light>
+    </a-scene>
+</body>
+</html>
