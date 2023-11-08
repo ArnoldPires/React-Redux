@@ -29,7 +29,8 @@
             <img id="bear" src="./images/bear.png" crossorigin="anonymous">
             <!-- Bird Texture -->
             <img id="bird" src="./images/bird.webp" crossorigin="anonymous">
-
+            <!-- Gazebo Texture -->
+            <img id="gazebo" src="./images/gazebo.webp" crossorigin="anonymous">
         </a-assets>
         <!-- Camera -->
         <a-camera id="mainCamera" position="0 -27 10" wasd-controls-enabled="true"></a-camera>
@@ -198,10 +199,12 @@
         <a-image src="#bear" scale="5 5 2.1" position="-23.3 -27 16" look-at="#mainCamera"></a-image>
         <!-- Bird -->
         <a-image src="#bird" scale="3 3 2.1" position="-22 -14 -41" look-at="#mainCamera"></a-image>
+        <!-- Gazebo -->
+        <a-image src="#gazebo" scale="30 30 10" position="-46 -16 -34" rotation="0 90 0"></a-image>
         <!-- Sun for the day side -->
         <a-light type="directional" position="2 4 -3" intensity="1.5"></a-light>
 
-        <!-- Ambient light for night side -->
+        <!-- Ambient light for night side -->w
         <a-light type="ambient" color="#444"></a-light>
 
         <!-- Point lights as stars or moonlight -->
